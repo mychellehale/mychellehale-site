@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mychelle Hale — Data Scientist</title>
+<meta name="description" content="Mychelle Hale is a Senior Principal Data Scientist working at the intersection of production machine learning, AI governance, and human-centered explainability." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600;1,9..144,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --lilac: #d4c2ec;
+  --lilac-deep: #9b7fc7;
+  --pink: #f4b8cd;
+  --pink-warm: #e87a99;
+  --teal: #5fc4b6;
+  --teal-deep: #1f8a7c;
+  --chartreuse: #d8e84f;
+  --brown: #4a2e1f;
+  --brown-mid: #7a5440;
+  --brown-light: #c8a892;
+  --cream: #f9f1e6;
+  --cream-warm: #f3e6d3;
+  --ink: #1a0e05;
+  --ink-mid: #3d2818;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+::selection { background: var(--chartreuse); color: var(--ink); }
+
+/* ─────────────── NAV ─────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 2.5rem;
+  background: rgba(249,241,230,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(74,46,31,0.08);
+}
+
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--brown);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-logo span { color: var(--pink-warm); }
+
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  text-decoration: none;
+  transition: color 0.25s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--teal-deep);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--teal-deep); }
+.nav-links a:hover::after { width: 100%; }
+
+/* ─────────────── HERO ─────────────── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  position: relative;
+  padding-top: 4rem;
+}
+
+.hero-left {
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 5rem 4rem 4.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 25% 70%, rgba(212,194,236,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(95,196,182,0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-marker {
+  position: absolute;
+  top: 5rem; left: 4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(216,232,79,0.7);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0;
+  animation: fadeIn 0.8s 0.1s forwards;
+}
+
+.hero-marker::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--chartreuse);
+  box-shadow: 0 0 10px var(--chartreuse);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+.hero-name {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3.2rem, 6.5vw, 6rem);
+  font-weight: 900;
+  line-height: 0.92;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.5s forwards;
+}
+
+.hero-name em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--lilac);
+}
+
+.hero-sub {
+  margin-top: 2rem;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: rgba(249,241,230,0.7);
+  line-height: 1.7;
+  max-width: 420px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.7s forwards;
+}
+
+.hero-sub strong {
+  font-weight: 500;
+  color: var(--cream);
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+.badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.85rem;
+  border-radius: 99px;
+  border: 1px solid;
+}
+
+.badge-lilac { border-color: var(--lilac); color: var(--lilac); }
+.badge-teal  { border-color: var(--teal);  color: var(--teal); }
+.badge-pink  { border-color: var(--pink);  color: var(--pink); }
+.badge-chart { border-color: var(--chartreuse); color: var(--chartreuse); }
+
+/* hero right — typographic block */
+.hero-right {
+  background: var(--lilac);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(244,184,205,0.6) 0%, transparent 50%),
+    radial-gradient(circle at 85% 15%, rgba(216,232,79,0.3) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-right-content {
+  position: relative;
+  max-width: 460px;
+  z-index: 2;
+}
+
+.hero-right-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 1.5rem;
+}
+
+.hero-right-quote {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-right-quote em {
+  font-style: italic;
+  color: var(--brown);
+}
+
+.hero-right-attr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--brown-mid);
+}
+
+/* scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem; left: 4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(249,241,230,0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.scroll-indicator::after {
+  content: '';
+  width: 30px; height: 1px;
+  background: rgba(249,241,230,0.5);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.4); }
+}
+
+/* ─────────────── MARQUEE ─────────────── */
+.marquee {
+  background: var(--chartreuse);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  overflow: hidden;
+  padding: 0.9rem 0;
+}
+
+.marquee-inner {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: marquee 40s linear infinite;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
+.marquee-inner span {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.marquee-inner span::after {
+  content: '✦';
+  color: var(--pink-warm);
+  font-style: normal;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ─────────────── SECTIONS ─────────────── */
+section {
+  padding: 7rem 4rem;
+  position: relative;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink-warm);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--pink-warm);
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--brown);
+  margin-bottom: 3rem;
+  max-width: 900px;
+}
+
+.section-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--teal-deep);
+}
+
+/* ─────────────── ABOUT ─────────────── */
+#about {
+  background: var(--cream);
+  position: relative;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.about-prose {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--ink-mid);
+}
+
+.about-prose p { margin-bottom: 1.5rem; }
+
+.about-prose strong {
+  font-weight: 600;
+  color: var(--brown);
+  background: linear-gradient(transparent 60%, var(--lilac) 60%);
+  padding: 0 0.1em;
+}
+
+.about-prose em {
+  font-style: italic;
+  color: var(--teal-deep);
+}
+
+.about-card {
+  background: var(--brown);
+  color: var(--cream);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -20%;
+  width: 80%; height: 80%;
+  background: radial-gradient(circle, var(--pink-warm) 0%, transparent 60%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.about-card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--chartreuse);
+  margin-bottom: 1.5rem;
+}
+
+.about-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.fact-list {
+  list-style: none;
+  position: relative;
+}
+
+.fact-list li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(249,241,230,0.15);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  font-weight: 300;
+}
+
+.fact-list li:last-child { border-bottom: none; }
+
+.fact-list li span:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown-light);
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  padding-top: 0.15rem;
+}
+
+.fact-list li span:last-child {
+  text-align: right;
+  color: var(--cream);
+}
+
+/* ─────────────── WORK ─────────────── */
+#work {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+#work .section-label { color: var(--chartreuse); }
+#work .section-label::before { background: var(--chartreuse); }
+#work .section-title { color: var(--cream); }
+#work .section-title em { color: var(--lilac); }
+
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(249,241,230,0.1);
+  border: 1px solid rgba(249,241,230,0.1);
+}
+
+.work-item {
+  background: var(--ink);
+  padding: 2.5rem;
+  transition: background 0.3s;
+  position: relative;
+}
+
+.work-item:hover {
+  background: #251609;
+}
+
+.work-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+
+.work-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.work-org {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 1.2rem;
+}
+
+.work-desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(249,241,230,0.7);
+  line-height: 1.6;
+}
+
+/* ─────────────── PROJECTS ─────────────── */
+#projects {
+  background: var(--cream-warm);
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--brown);
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 2fr 120px;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(74,46,31,0.2);
+  align-items: center;
+  transition: padding 0.3s, background 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.project-row:hover {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: var(--cream);
+}
+
+.project-row:hover .proj-arrow {
+  transform: translateX(8px);
+  color: var(--pink-warm);
+}
+
+.proj-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--brown-mid);
+}
+
+.proj-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--brown);
+  line-height: 1.15;
+}
+
+.proj-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.proj-desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--ink-mid);
+  line-height: 1.55;
+}
+
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.6rem;
+}
+
+.proj-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 99px;
+  background: var(--lilac);
+  color: var(--brown);
+}
+
+.proj-finding {
+  margin-top: 0.7rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown-mid);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.proj-finding::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--chartreuse);
+  flex-shrink: 0;
+}
+
+.proj-finding.done::before {
+  background: var(--teal-deep);
+}
+
+.proj-arrow {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--brown);
+  text-align: right;
+  transition: transform 0.3s, color 0.3s;
+}
+
+/* ─────────────── BEYOND ─────────────── */
+#beyond {
+  background: var(--pink);
+  position: relative;
+  overflow: hidden;
+}
+
+#beyond::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 90% 10%, var(--lilac) 0%, transparent 40%),
+    radial-gradient(circle at 5% 95%, var(--chartreuse) 0%, transparent 30%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+#beyond .section-label { color: var(--brown); }
+#beyond .section-label::before { background: var(--brown); }
+#beyond .section-title {
+  color: var(--ink);
+  position: relative;
+}
+
+#beyond .section-title em { color: var(--cream); font-family: 'Fraunces', serif; }
+
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+
+.beyond-card {
+  background: var(--cream);
+  padding: 2rem;
+  border-radius: 4px;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.beyond-card:nth-child(1) { transform: rotate(-1deg); }
+.beyond-card:nth-child(2) { transform: rotate(0.5deg); margin-top: 1.5rem; }
+.beyond-card:nth-child(3) { transform: rotate(-0.5deg); }
+.beyond-card:nth-child(4) { transform: rotate(1deg); margin-top: 1rem; }
+.beyond-card:nth-child(5) { transform: rotate(-1.5deg); }
+.beyond-card:nth-child(6) { transform: rotate(0.8deg); margin-top: 1.2rem; }
+
+.beyond-card:hover {
+  transform: rotate(0deg) scale(1.02);
+  z-index: 2;
+}
+
+.beyond-icon {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--pink-warm);
+  margin-bottom: 0.8rem;
+  display: inline-block;
+}
+
+.beyond-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--brown);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.beyond-card p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--ink-mid);
+  line-height: 1.55;
+}
+
+.beyond-card .accent {
+  color: var(--teal-deep);
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+}
+
+/* ─────────────── SPEAKING ─────────────── */
+#speaking {
+  background: var(--lilac);
+  position: relative;
+  overflow: hidden;
+}
+
+#speaking::before {
+  content: '';
+  position: absolute;
+  top: -10%; right: -10%;
+  width: 60%; height: 60%;
+  background: radial-gradient(circle, var(--pink) 0%, transparent 60%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+#speaking .section-label { color: var(--brown); }
+#speaking .section-label::before { background: var(--brown); }
+#speaking .section-title { color: var(--ink); }
+#speaking .section-title em { color: var(--teal-deep); }
+
+.speaking-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1.5px solid var(--brown);
+}
+
+.speaking-row {
+  display: grid;
+  grid-template-columns: 110px 2fr 1.4fr 100px;
+  gap: 2rem;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid rgba(74,46,31,0.25);
+  align-items: baseline;
+  text-decoration: none;
+  color: inherit;
+  transition: padding 0.3s, background 0.3s;
+}
+
+.speaking-row[href]:hover {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: rgba(253,248,242,0.4);
+}
+
+.speaking-row[href]:hover .speak-arrow {
+  transform: translateX(8px);
+  color: var(--pink-warm);
+}
+
+.speak-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--brown);
+  font-weight: 500;
+}
+
+.speak-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.speak-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.speak-venue {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+.speak-venue .speak-org {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brown-mid);
+  margin-top: 0.3rem;
+}
+
+.speak-arrow {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--brown);
+  text-align: right;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.speak-arrow.none {
+  visibility: hidden;
+}
+
+.speak-honor {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--chartreuse);
+  padding: 0.25rem 0.7rem;
+  border-radius: 99px;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .speaking-row {
+    grid-template-columns: 70px 1fr 50px;
+    gap: 1rem;
+  }
+  .speak-venue { display: none; }
+}
+
+/* ─────────────── WRITING ─────────────── */
+#writing {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+#writing .section-label { color: var(--lilac); }
+#writing .section-label::before { background: var(--lilac); }
+#writing .section-title { color: var(--cream); }
+#writing .section-title em { color: var(--pink); }
+
+.writing-empty {
+  border: 1px dashed rgba(249,241,230,0.2);
+  padding: 5rem 3rem;
+  text-align: center;
+}
+
+.writing-soon-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--chartreuse);
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--chartreuse);
+  padding: 0.3rem 0.8rem;
+  border-radius: 99px;
+}
+
+.writing-soon-text {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(249,241,230,0.85);
+  max-width: 560px;
+  margin: 0 auto 1rem;
+  line-height: 1.5;
+}
+
+.writing-soon-sub {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(249,241,230,0.4);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+/* ─────────────── VALUES ─────────────── */
+#values {
+  background: var(--teal-deep);
+  color: var(--cream);
+}
+
+#values .section-label { color: var(--chartreuse); }
+#values .section-label::before { background: var(--chartreuse); }
+#values .section-title { color: var(--cream); }
+#values .section-title em { color: var(--lilac); }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.value-block h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--chartreuse);
+}
+
+.value-block p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(249,241,230,0.85);
+}
+
+/* ─────────────── CONTACT ─────────────── */
+#contact {
+  background: var(--cream);
+  text-align: center;
+  padding: 8rem 4rem 4rem;
+}
+
+#contact .section-label {
+  justify-content: center;
+}
+
+#contact .section-label::before { display: none; }
+
+.contact-headline {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--brown);
+  margin-bottom: 2rem;
+}
+
+.contact-headline em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--pink-warm);
+}
+
+.contact-sub {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--ink-mid);
+  max-width: 580px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.contact-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  border: 1.5px solid var(--brown);
+  color: var(--brown);
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-link:hover {
+  background: var(--brown);
+  color: var(--cream);
+  transform: translateY(-2px);
+}
+
+.contact-link.primary {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.contact-link.primary:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+footer {
+  border-top: 1px solid rgba(74,46,31,0.15);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown-mid);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─────────────── ANIMATIONS ─────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────── RESPONSIVE ─────────────── */
+@media (max-width: 1024px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.4rem; }
+  section { padding: 5rem 2rem; }
+  #hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 5rem 2rem 3rem; }
+  .hero-right { min-height: 400px; }
+  .hero-marker { left: 2rem; }
+  .scroll-indicator { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .work-grid { grid-template-columns: 1fr; }
+  .project-row { grid-template-columns: 50px 1fr 50px; gap: 1rem; }
+  .project-row .proj-desc { display: none; }
+  .beyond-grid, .values-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  #contact { padding: 5rem 2rem 3rem; }
+}
+
+@media (max-width: 640px) {
+  .nav-links { gap: 0.9rem; }
+  .nav-links a { font-size: 0.62rem; letter-spacing: 0.1em; }
+  .nav-logo { font-size: 1rem; }
+  .beyond-grid, .values-grid { grid-template-columns: 1fr; }
+  .contact-links { flex-direction: column; align-items: stretch; }
+  .marquee-inner { font-size: 1.1rem; gap: 2rem; }
+  .marquee-inner span { gap: 2rem; }
+  .about-prose { font-size: 1.15rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Mychelle <span>Hale</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#speaking">Speaking</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-marker">Available · 2026</div>
+    <p class="hero-tag">Senior Principal Data Scientist</p>
+    <h1 class="hero-name">Mychelle<br/><em>Hale.</em></h1>
+    <p class="hero-sub">
+      I build machine learning for places where the model has to answer for itself. <strong>Regulated industries, explainability-first</strong>, with a serious interest in causal inference and causal search.
+    </p>
+    <div class="hero-badges">
+      <span class="badge badge-lilac">BEYA 2025</span>
+      <span class="badge badge-teal">EU AI Act</span>
+      <span class="badge badge-pink">Bayesian ML</span>
+      <span class="badge badge-chart">Ex-NASA JPL</span>
+    </div>
+    <div class="scroll-indicator">Scroll</div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-content">
+      <p class="hero-right-eyebrow">A note</p>
+      <p class="hero-right-quote">
+        I got into this because a softball coach told me not to swing on a 2-0 count. <em>He was right. Markov chains agreed.</em>
+      </p>
+      <p class="hero-right-attr">Markov chains, undergrad capstone, 2017</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="section-label">01 — About</div>
+  <h2 class="section-title">Hi, I'm <em>Mychelle.</em></h2>
+
+  <div class="about-grid">
+    <div class="about-prose reveal">
+      <p>
+        I happened into data science. In undergrad I was hunting for a stats capstone and ended up using Markov chains to test something a softball coach told me my whole life: <em>don't swing on a 2-0 count.</em> I was running sabermetrics on MLB data, the analysis backed him up, and I've been in the field ever since.
+      </p>
+      <p>
+        I care most about problems where <strong>the data has stakes</strong> and the work helps people. Credit decisions, churn, animal welfare. I also just love a good dataset, which is how I ended up with personal projects on baseball contracts, ADHD genetics, and shelter outcomes. I think a lot about explainability and governance for the same reason. I also care about the ethics of ML and AI, and how diversity and representation in the field is what keeps unconscious bias from getting baked into the models we ship.
+      </p>
+      <p>
+        I've been in aerospace for 6 years, currently working on Smart Manufacturing and Condition-Based Maintenance. Before that I did commercial analytics at Urban Science and was a contractor at JPL doing Earth Science research. Different industries, but the throughline has always been the same: <em>using data to answer questions that matter.</em>
+      </p>
+      <p>
+        I just recently came back to baseball after years away from it. Hence two of the projects below.
+      </p>
+    </div>
+
+    <div class="about-card reveal">
+      <div class="about-card-label">Quick Facts</div>
+      <h3>The short version.</h3>
+      <ul class="fact-list">
+        <li><span>Based</span><span>Los Angeles</span></li>
+        <li><span>Role</span><span>Sr. Principal DS</span></li>
+        <li><span>Education</span><span>MS Applied Stats</span></li>
+        <li><span>Languages</span><span>EN · JP · ES</span></li>
+        <li><span>Stack</span><span>Python · R · GCP</span></li>
+        <li><span>Recognition</span><span>BEYA 2025</span></li>
+        <li><span>Communities</span><span>NSBE · SoCal DS</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECTS ─── -->
+<section id="projects">
+  <div class="section-label">02 — Projects</div>
+  <h2 class="section-title">Side projects, <em>mostly recent.</em></h2>
+
+  <div class="projects-list">
+
+    <a href="#" class="project-row reveal">
+      <div class="proj-num">/01</div>
+      <div>
+        <div class="proj-title">Who actually <em>defaults</em>?</div>
+        <div class="proj-tags">
+          <span class="proj-tag">CatBoost</span>
+          <span class="proj-tag">SHAP</span>
+          <span class="proj-tag">EU AI Act</span>
+        </div>
+      </div>
+      <div class="proj-desc">
+        Which customer behaviors most strongly predict credit card default, and how do you make that decision explainable enough to satisfy EU AI Act Article 6? Built on the UCI Credit Card Default dataset.
+        <div class="proj-finding">Findings, in progress</div>
+      </div>
+      <div class="proj-arrow">→</div>
+    </a>
+
+    <a href="#" class="project-row reveal">
+      <div class="proj-num">/02</div>
+      <div>
+        <div class="proj-title">Should you <em>call</em> this customer?</div>
+        <div class="proj-tags">
+          <span class="proj-tag">Causal Lift</span>
+          <span class="proj-tag">A/B Testing</span>
+          <span class="proj-tag">Power Analysis</span>
+        </div>
+      </div>
+      <div class="proj-desc">
+        Most marketing analytics measures who converted, not who converted because of the call. Using the UCI Bank Marketing dataset to estimate causal lift from outbound calls, so you can identify which customers the call actually moves and stop wasting effort on the rest.
+        <div class="proj-finding">Findings, in progress</div>
+      </div>
+      <div class="proj-arrow">→</div>
+    </a>
+
+    <a href="#" class="project-row reveal">
+      <div class="proj-num">/03</div>
+      <div>
+        <div class="proj-title">How much do ADHD, depression, autism, and bipolar <em>share?</em></div>
+        <div class="proj-tags">
+          <span class="proj-tag">GWAS</span>
+          <span class="proj-tag">LDSC</span>
+          <span class="proj-tag">Psychiatric Genetics</span>
+        </div>
+      </div>
+      <div class="proj-desc">
+        How much genetic architecture is shared across ADHD, MDD, ASD, and bipolar disorder, and how have those estimates shifted with the 2023 iPSYCH / PGC ADHD GWAS? Personal interest project.
+        <div class="proj-finding">Findings, in progress</div>
+      </div>
+      <div class="proj-arrow">→</div>
+    </a>
+
+    <a href="#" class="project-row reveal">
+      <div class="proj-num">/04</div>
+      <div>
+        <div class="proj-title">Which animals <em>get out</em> of the LA shelter system?</div>
+        <div class="proj-tags">
+          <span class="proj-tag">Classification</span>
+          <span class="proj-tag">Data Viz</span>
+          <span class="proj-tag">Public Data</span>
+        </div>
+      </div>
+      <div class="proj-desc">
+        LA's shelter system is hugely overcrowded. Which intake characteristics most predict whether an animal gets adopted, transferred, or euthanized, and how long they wait for an outcome? Public data, public-facing visualizations.
+        <div class="proj-finding">Findings, in progress</div>
+      </div>
+      <div class="proj-arrow">→</div>
+    </a>
+
+    <a href="#" class="project-row reveal">
+      <div class="proj-num">/05</div>
+      <div>
+        <div class="proj-title">Which rookies are <em>systematically underpaid?</em></div>
+        <div class="proj-tags">
+          <span class="proj-tag">Causal Inference</span>
+          <span class="proj-tag">Natural Experiment</span>
+          <span class="proj-tag">Sports Analytics</span>
+        </div>
+      </div>
+      <div class="proj-desc">
+        MLB's pre-arbitration service time rules create a natural experiment. Which pre-arb performance signals causally predict post-arb value, and which signals do front offices act on that turn out not to matter?
+        <div class="proj-finding">Findings, in progress</div>
+      </div>
+      <div class="proj-arrow">→</div>
+    </a>
+
+    <a href="#" class="project-row reveal">
+      <div class="proj-num">/06</div>
+      <div>
+        <div class="proj-title">What declines <em>before the headline numbers</em>?</div>
+        <div class="proj-tags">
+          <span class="proj-tag">Causal Search</span>
+          <span class="proj-tag">PC Algorithm</span>
+          <span class="proj-tag">Sports Analytics</span>
+        </div>
+      </div>
+      <div class="proj-desc">
+        Which biomechanical and performance metrics decline first, before the headline output stats start moving, and the market prices it in? Using causal structure learning on Statcast data to find leading indicators aging curves miss.
+        <div class="proj-finding">Findings, in progress</div>
+      </div>
+      <div class="proj-arrow">→</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ─── SPEAKING ─── -->
+<section id="speaking">
+  <div class="section-label">03 — Speaking</div>
+  <h2 class="section-title">Talks, panels, <em>and one award.</em></h2>
+
+  <div class="speaking-list">
+
+    <div class="speaking-row">
+      <div class="speak-year">2025</div>
+      <div>
+        <div class="speak-title">BEYA Modern Day Technology <em>Leader Award</em></div>
+        <div class="speak-honor">Honor</div>
+      </div>
+      <div class="speak-venue">
+        Black Engineer of the Year Awards STEM Conference
+        <span class="speak-org">BEYA</span>
+      </div>
+      <div class="speak-arrow none">→</div>
+    </div>
+
+    <a href="#" class="speaking-row">
+      <div class="speak-year">2025</div>
+      <div>
+        <div class="speak-title">Industry panel, <em>life as a data scientist</em></div>
+      </div>
+      <div class="speak-venue">
+        Data Day at the Beach
+        <span class="speak-org">CSULB</span>
+      </div>
+      <div class="speak-arrow">→</div>
+    </a>
+
+    <a href="#" class="speaking-row">
+      <div class="speak-year">2025</div>
+      <div>
+        <div class="speak-title">Steering Your Career <em>coaching circle</em></div>
+      </div>
+      <div class="speak-venue">
+        Women in Engineering
+        <span class="speak-org">CSULB WiE</span>
+      </div>
+      <div class="speak-arrow">→</div>
+    </a>
+
+    <a href="#" class="speaking-row">
+      <div class="speak-year">2023</div>
+      <div>
+        <div class="speak-title">Industry panel, <em>life as a data scientist</em></div>
+      </div>
+      <div class="speak-venue">
+        Data Day at the Beach
+        <span class="speak-org">CSULB</span>
+      </div>
+      <div class="speak-arrow">→</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ─── WRITING ─── -->
+<section id="writing">
+  <div class="section-label">04 — Writing</div>
+  <h2 class="section-title">Writing, <em>eventually.</em></h2>
+
+  <div class="writing-empty reveal">
+    <div class="writing-empty-inner">
+      <span class="writing-soon-tag">Coming Soon</span>
+      <p class="writing-soon-text">
+        I've been meaning to write more, mostly about explainability, governance, and the gap between what models do and what people think they do. Pieces in progress.
+      </p>
+      <p class="writing-soon-sub">Find me on LinkedIn in the meantime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VALUES ─── -->
+<section id="values">
+  <div class="section-label">05 — How I Work</div>
+  <h2 class="section-title">A few things I <em>actually believe.</em></h2>
+
+  <div class="values-grid">
+
+    <div class="value-block reveal">
+      <h3>Explainability is the job.</h3>
+      <p>If a model affects somebody's credit, their job, their access to something, they should be able to get a real answer about why. I'm pretty firm about this.</p>
+    </div>
+
+    <div class="value-block reveal">
+      <h3>Translation matters more than the model.</h3>
+      <p>Most projects don't fall apart on the math. They fall apart because the people who own the decision and the people who built the model never quite agreed on what the model was supposed to do.</p>
+    </div>
+
+    <div class="value-block reveal">
+      <h3>I like working across industries.</h3>
+      <p>Earth science, automotive, aerospace, with fintech, entertainment, and hospitality on my radar next. Different problems, but messy data and stubborn stakeholders show up everywhere. Range has been good to me.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="section-label">06 — Get in Touch</div>
+  <h1 class="contact-headline">Let's <em>talk.</em></h1>
+  <p class="contact-sub">
+    I'm open to senior data science and ML roles, especially ones involving causal inference, causal search, or AI governance. Fintech, entertainment, hospitality, anywhere globally where the problem is good and the data has stakes. Always happy to connect with women in STEM, fellow mentors, and mentees.
+  </p>
+
+  <div class="contact-links">
+    <a href="#" class="contact-link primary">LinkedIn →</a>
+    <a href="#" class="contact-link">GitHub</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Mychelle Hale</span>
+    <span>Los Angeles</span>
+  </footer>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('in'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
