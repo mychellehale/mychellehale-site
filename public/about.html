@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Mychelle Hale</title>
+<meta name="description" content="About Mychelle Hale — Senior Principal Data Scientist based in Los Angeles." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600;1,9..144,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Mychelle <span>Hale</span></a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/speaking">Speaking</a></li>
+    <li><a href="/writing">Writing</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="about">
+  <div class="section-label">About</div>
+  <h2 class="section-title">Hi, I'm <em>Mychelle.</em></h2>
+
+  <div class="about-grid">
+    <div class="about-prose reveal">
+      <p>
+        I kinda stumbled into Data Science during undergrad when I was hunting for a Statistics-related project for my Capstone Thesis. I ended up using Markov Chains to test something a softball coach told me my whole life: <em>don't swing on a 2-0 count.</em> I was running Sabermetrics on MLB data, the analysis backed him up, and I've been in the field ever since.
+      </p>
+      <p>
+        I care most about problems where <strong>the data has stakes</strong> and the work helps people. Credit decisions, churn, animal welfare. I also just love a good dataset, which is how I ended up with personal projects on baseball contracts, ADHD genetics, and shelter outcomes. I think a lot about explainability and governance for the same reason. Ethics in ML isn't separate from the work for me. Without diversity in who's building these models, unconscious bias gets baked in by default.
+      </p>
+      <p>
+        I've been in aerospace for 6 years, currently working on Smart Manufacturing and Condition-Based Maintenance. Before that I did commercial analytics at Urban Science and was a contractor at JPL doing atmospheric chemistry research.
+      </p>
+      <p>
+        I just recently came back to baseball after years away from it. Two of my active projects are baseball.
+      </p>
+    </div>
+
+    <div class="about-card reveal">
+      <div class="about-card-label">Quick Facts</div>
+      <h3>The short version.</h3>
+      <ul class="fact-list">
+        <li><span>Based</span><span>Los Angeles</span></li>
+        <li><span>Role</span><span>Sr. Principal DS</span></li>
+        <li><span>Education</span><span>MS Applied Stats</span></li>
+        <li><span>Languages</span><span>EN · JP · ES</span></li>
+        <li><span>Stack</span><span>Python · R · GCP</span></li>
+        <li><span>Recognition</span><span>BEYA 2025</span></li>
+        <li><span>Communities</span><span>NSBE · SoCal DS</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="values">
+  <div class="section-label">How I Work</div>
+  <h2 class="section-title">A few things I <em>actually believe.</em></h2>
+
+  <div class="values-grid">
+
+    <div class="value-block reveal">
+      <h3>Explainability is the job.</h3>
+      <p>If a model affects somebody's credit, their job, their access to something, they should be able to get a real answer about why. I won't ship a model I can't explain.</p>
+    </div>
+
+    <div class="value-block reveal">
+      <h3>Translation matters more than the model.</h3>
+      <p>Most projects don't fall apart on the math. They fall apart because the people who own the decision and the people who built the model never quite agreed on what the model was supposed to do.</p>
+    </div>
+
+    <div class="value-block reveal">
+      <h3>Range, on purpose.</h3>
+      <p>Earth science, automotive, aerospace, with fintech, entertainment, and hospitality on my radar next. Different problems, but messy data and stubborn stakeholders show up everywhere. Range has been good to me.</p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('in'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
