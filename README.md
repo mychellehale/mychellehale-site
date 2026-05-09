@@ -2,8 +2,8 @@
 
 Personal site for Mychelle Hale, Senior Principal Data Scientist.
 
-Built as a single static HTML file. Deployed via Cloudflare Pages.
+Built as a single static HTML file. Deployed via Cloudflare Workers (static assets).
 
 ## Editing
 
-Edit `index.html` directly. Any push to `main` triggers an automatic redeploy.
+Edit `public/index.html` directly. Any push to `main` triggers an automatic redeploy.
