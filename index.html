@@ -127,16 +127,15 @@ nav {
 }
 
 .hero-marker {
-  position: absolute;
-  top: 5rem; left: 4rem;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(216,232,79,0.7);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.6rem;
+  margin-bottom: 1.75rem;
   opacity: 0;
   animation: fadeIn 0.8s 0.1s forwards;
 }
@@ -280,6 +279,15 @@ nav {
   letter-spacing: 0.12em;
   color: var(--brown-mid);
 }
+
+.hero-right-attr a {
+  color: var(--brown);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.25s;
+}
+
+.hero-right-attr a:hover { color: var(--pink-warm); }
 
 /* scroll indicator */
 .scroll-indicator {
@@ -924,6 +932,15 @@ section {
   letter-spacing: 0.1em;
 }
 
+.writing-soon-sub a {
+  color: var(--lilac);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.25s;
+}
+
+.writing-soon-sub a:hover { color: var(--pink); }
+
 /* ─────────────── VALUES ─────────────── */
 #values {
   background: var(--teal-deep);
@@ -937,8 +954,9 @@ section {
 
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  max-width: 820px;
 }
 
 .value-block h3 {
@@ -1079,13 +1097,12 @@ footer {
   #hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-left { padding: 5rem 2rem 3rem; }
   .hero-right { min-height: 400px; }
-  .hero-marker { left: 2rem; }
   .scroll-indicator { display: none; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .work-grid { grid-template-columns: 1fr; }
   .project-row { grid-template-columns: 50px 1fr 50px; gap: 1rem; }
   .project-row .proj-desc { display: none; }
-  .beyond-grid, .values-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .beyond-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
   #contact { padding: 5rem 2rem 3rem; }
 }
 
@@ -1093,7 +1110,7 @@ footer {
   .nav-links { gap: 0.9rem; }
   .nav-links a { font-size: 0.62rem; letter-spacing: 0.1em; }
   .nav-logo { font-size: 1rem; }
-  .beyond-grid, .values-grid { grid-template-columns: 1fr; }
+  .beyond-grid { grid-template-columns: 1fr; }
   .contact-links { flex-direction: column; align-items: stretch; }
   .marquee-inner { font-size: 1.1rem; gap: 2rem; }
   .marquee-inner span { gap: 2rem; }
@@ -1106,7 +1123,6 @@ footer {
 <nav>
   <a href="#" class="nav-logo">Mychelle <span>Hale</span></a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#speaking">Speaking</a></li>
@@ -1122,11 +1138,11 @@ footer {
     <p class="hero-tag">Senior Principal Data Scientist</p>
     <h1 class="hero-name">Mychelle<br/><em>Hale.</em></h1>
     <p class="hero-sub">
-      I build machine learning for places where the model has to answer for itself. <strong>Regulated industries, explainability-first</strong>, with a serious interest in causal inference and causal search.
+      I build machine learning for <strong>regulated industries</strong>, where the model has to be able to explain itself. Causal inference and causal search are where I spend my time.
     </p>
     <div class="hero-badges">
       <span class="badge badge-lilac">BEYA 2025</span>
-      <span class="badge badge-teal">EU AI Act</span>
+      <span class="badge badge-teal">AI Governance</span>
       <span class="badge badge-pink">Bayesian ML</span>
       <span class="badge badge-chart">Ex-NASA JPL</span>
     </div>
@@ -1137,9 +1153,9 @@ footer {
     <div class="hero-right-content">
       <p class="hero-right-eyebrow">A note</p>
       <p class="hero-right-quote">
-        I got into this because a softball coach told me not to swing on a 2-0 count. <em>He was right. Markov chains agreed.</em>
+        I got into Data Science because a softball coach told me not to swing on a 2-0 count. <em>He was right. Markov Chains agreed.</em>
       </p>
-      <p class="hero-right-attr">Markov chains, undergrad capstone, 2017</p>
+      <p class="hero-right-attr">Markov Chains, <a href="https://github.com/mychellehale/Capstone-Thesis/" target="_blank" rel="noopener">Capstone Thesis</a>, CLU 2016–2017</p>
     </div>
   </div>
 </section>
@@ -1152,16 +1168,16 @@ footer {
   <div class="about-grid">
     <div class="about-prose reveal">
       <p>
-        I happened into data science. In undergrad I was hunting for a stats capstone and ended up using Markov chains to test something a softball coach told me my whole life: <em>don't swing on a 2-0 count.</em> I was running sabermetrics on MLB data, the analysis backed him up, and I've been in the field ever since.
+        I kinda stumbled into Data Science during undergrad when I was hunting for a Statistics-related project for my Capstone Thesis. I ended up using Markov Chains to test something a softball coach told me my whole life: <em>don't swing on a 2-0 count.</em> I was running Sabermetrics on MLB data, the analysis backed him up, and I've been in the field ever since.
       </p>
       <p>
-        I care most about problems where <strong>the data has stakes</strong> and the work helps people. Credit decisions, churn, animal welfare. I also just love a good dataset, which is how I ended up with personal projects on baseball contracts, ADHD genetics, and shelter outcomes. I think a lot about explainability and governance for the same reason. I also care about the ethics of ML and AI, and how diversity and representation in the field is what keeps unconscious bias from getting baked into the models we ship.
+        I care most about problems where <strong>the data has stakes</strong> and the work helps people. Credit decisions, churn, animal welfare. I also just love a good dataset, which is how I ended up with personal projects on baseball contracts, ADHD genetics, and shelter outcomes. I think a lot about explainability and governance for the same reason. Ethics in ML isn't separate from the work for me. Without diversity in who's building these models, unconscious bias gets baked in by default.
       </p>
       <p>
-        I've been in aerospace for 6 years, currently working on Smart Manufacturing and Condition-Based Maintenance. Before that I did commercial analytics at Urban Science and was a contractor at JPL doing Earth Science research. Different industries, but the throughline has always been the same: <em>using data to answer questions that matter.</em>
+        I've been in aerospace for 6 years, currently working on Smart Manufacturing and Condition-Based Maintenance. Before that I did commercial analytics at Urban Science and was a contractor at JPL doing atmospheric chemistry research.
       </p>
       <p>
-        I just recently came back to baseball after years away from it. Hence two of the projects below.
+        I just recently came back to baseball after years away from it. Two of the projects below are baseball.
       </p>
     </div>
 
@@ -1188,14 +1204,14 @@ footer {
 
   <div class="projects-list">
 
-    <a href="#" class="project-row reveal">
+    <a href="https://github.com/mychellehale/creditlens" target="_blank" rel="noopener" class="project-row reveal">
       <div class="proj-num">/01</div>
       <div>
         <div class="proj-title">Who actually <em>defaults</em>?</div>
         <div class="proj-tags">
           <span class="proj-tag">CatBoost</span>
           <span class="proj-tag">SHAP</span>
-          <span class="proj-tag">EU AI Act</span>
+          <span class="proj-tag">AI Governance</span>
         </div>
       </div>
       <div class="proj-desc">
@@ -1205,7 +1221,7 @@ footer {
       <div class="proj-arrow">→</div>
     </a>
 
-    <a href="#" class="project-row reveal">
+    <a href="https://github.com/mychellehale" target="_blank" rel="noopener" class="project-row reveal">
       <div class="proj-num">/02</div>
       <div>
         <div class="proj-title">Should you <em>call</em> this customer?</div>
@@ -1303,7 +1319,7 @@ footer {
     <div class="speaking-row">
       <div class="speak-year">2025</div>
       <div>
-        <div class="speak-title">BEYA Modern Day Technology <em>Leader Award</em></div>
+        <div class="speak-title">BEYA Modern Day Technology Leader, <em>Award</em></div>
         <div class="speak-honor">Honor</div>
       </div>
       <div class="speak-venue">
@@ -1316,10 +1332,9 @@ footer {
     <a href="#" class="speaking-row">
       <div class="speak-year">2025</div>
       <div>
-        <div class="speak-title">Industry panel, <em>life as a data scientist</em></div>
+        <div class="speak-title">Data Day at the Beach, <em>Industry Panel</em></div>
       </div>
       <div class="speak-venue">
-        Data Day at the Beach
         <span class="speak-org">CSULB</span>
       </div>
       <div class="speak-arrow">→</div>
@@ -1328,10 +1343,20 @@ footer {
     <a href="#" class="speaking-row">
       <div class="speak-year">2025</div>
       <div>
-        <div class="speak-title">Steering Your Career <em>coaching circle</em></div>
+        <div class="speak-title">CSULB Women in Engineering, <em>AI &amp; Manufacturing Panel</em></div>
       </div>
       <div class="speak-venue">
-        Women in Engineering
+        <span class="speak-org">CSULB WiE</span>
+      </div>
+      <div class="speak-arrow">→</div>
+    </a>
+
+    <a href="#" class="speaking-row">
+      <div class="speak-year">2025</div>
+      <div>
+        <div class="speak-title">CSULB Women in Engineering, <em>Steering Your Career Coaching Circle</em></div>
+      </div>
+      <div class="speak-venue">
         <span class="speak-org">CSULB WiE</span>
       </div>
       <div class="speak-arrow">→</div>
@@ -1340,10 +1365,9 @@ footer {
     <a href="#" class="speaking-row">
       <div class="speak-year">2023</div>
       <div>
-        <div class="speak-title">Industry panel, <em>life as a data scientist</em></div>
+        <div class="speak-title">Data Day at the Beach, <em>Industry Panel</em></div>
       </div>
       <div class="speak-venue">
-        Data Day at the Beach
         <span class="speak-org">CSULB</span>
       </div>
       <div class="speak-arrow">→</div>
@@ -1363,7 +1387,7 @@ footer {
       <p class="writing-soon-text">
         I've been meaning to write more, mostly about explainability, governance, and the gap between what models do and what people think they do. Pieces in progress.
       </p>
-      <p class="writing-soon-sub">Find me on LinkedIn in the meantime.</p>
+      <p class="writing-soon-sub">Find me on <a href="https://www.linkedin.com/in/mychelle-hale" target="_blank" rel="noopener">LinkedIn</a> in the meantime.</p>
     </div>
   </div>
 </section>
@@ -1377,7 +1401,7 @@ footer {
 
     <div class="value-block reveal">
       <h3>Explainability is the job.</h3>
-      <p>If a model affects somebody's credit, their job, their access to something, they should be able to get a real answer about why. I'm pretty firm about this.</p>
+      <p>If a model affects somebody's credit, their job, their access to something, they should be able to get a real answer about why. I won't ship a model I can't explain.</p>
     </div>
 
     <div class="value-block reveal">
@@ -1386,7 +1410,7 @@ footer {
     </div>
 
     <div class="value-block reveal">
-      <h3>I like working across industries.</h3>
+      <h3>Range, on purpose.</h3>
       <p>Earth science, automotive, aerospace, with fintech, entertainment, and hospitality on my radar next. Different problems, but messy data and stubborn stakeholders show up everywhere. Range has been good to me.</p>
     </div>
 
@@ -1398,12 +1422,12 @@ footer {
   <div class="section-label">06 — Get in Touch</div>
   <h1 class="contact-headline">Let's <em>talk.</em></h1>
   <p class="contact-sub">
-    I'm open to senior data science and ML roles, especially ones involving causal inference, causal search, or AI governance. Fintech, entertainment, hospitality, anywhere globally where the problem is good and the data has stakes. Always happy to connect with women in STEM, fellow mentors, and mentees.
+    I'm open to senior data science and ML roles, especially ones involving causal inference, causal search, or AI governance. Fintech, entertainment, hospitality, and open globally. I always have time for women in STEM, fellow mentors, and mentees.
   </p>
 
   <div class="contact-links">
-    <a href="#" class="contact-link primary">LinkedIn →</a>
-    <a href="#" class="contact-link">GitHub</a>
+    <a href="https://www.linkedin.com/in/mychelle-hale" target="_blank" rel="noopener" class="contact-link primary">LinkedIn →</a>
+    <a href="https://github.com/mychellehale" target="_blank" rel="noopener" class="contact-link">GitHub →</a>
   </div>
 
   <footer>
