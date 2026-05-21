@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mychellehale.com/sitemap.xml
