@@ -2,8 +2,18 @@
 
 Personal site for Mychelle Hale, Senior Principal Data Scientist.
 
-Built as a single static HTML file. Deployed via Cloudflare Workers (static assets).
+Five static HTML pages with a shared stylesheet. Deployed via Cloudflare Workers (static assets), not Pages. Config in `wrangler.jsonc`, worker name `mychellehale-site`, serving `./public`.
 
-## Editing
+## Pages
 
-Edit `public/index.html` directly. Any push to `main` triggers an automatic redeploy.
+- `public/index.html` — home
+- `public/about.html` — about
+- `public/projects.html` — projects
+- `public/speaking.html` — speaking
+- `public/writing.html` — writing
+- `public/contact.html` — contact
+- `public/style.css` — shared styles
+
+## Deploying
+
+Any push to `main` triggers an automatic redeploy (~1-2 min).
