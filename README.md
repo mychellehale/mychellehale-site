@@ -1,6 +1,6 @@
 # mychellehale.com
 
-Personal site for Mychelle Hale, Senior Principal Data Scientist.
+Personal site for Mychelle Hale, Senior Data Scientist.
 
 Five static HTML pages with a shared stylesheet. Deployed via Cloudflare Workers (static assets), not Pages. Config in `wrangler.jsonc`, worker name `mychellehale-site`, serving `./public`.
 
